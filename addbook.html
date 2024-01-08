@@ -23,18 +23,18 @@
           <div class="box1">
             <h1 style="text-align: center;font-size: 35px;font-family: Lucida Console;">LIBRARY MANAGEMENT SYSTEM</h1><br>
             <h1 style="text-align: center;font-size: 25px;">ADD BOOKS</h1><br>
-            <form name="login" action="" method="">
+            <form name="login" action="editbook.html" method="">
               <br><br>
               <div class="login">
                <input class="form-control" type="text" name="Bookname" placeholder="Bookname" required=""><br>
                <input class="form-control" type="text" name="Authorname" placeholder="Authorname" required=""><br>
                <input class="form-control" type=" text" name="Quantity" placeholder="Quantity" required=""><br>
                <input class="form-control" type="number" name="Price" placeholder="Price" required=""><br>      
-                <button style="background-color: burlywood;width: 300px;height: 40px;">Submmit</button>
+                <button onclick="addbook()" style="background-color: burlywood;width: 300px;height: 40px;">Submmit</button>
             </form>
-          
           </div>
         </div>
     </section>
+    <script src="home.js"></script>
 </body>
 </html>

@@ -28,7 +28,7 @@
           <div class="box2">
             <h1 style="text-align: center;font-size: 35px;font-family: Lucida Console;">LIBRARY MANAGEMENT SYSTEM</h1><br>
             <h1 style="text-align: center;font-size: 25px;">USER REGISTRATION FORM</h1><br>
-            <form name="registration" action="" method="">
+            <form name="registration" action="index.html" method="post">
               <br>
               <div class="login">
                 <input class="form-control" type="text" name="Firstname" placeholder="Firstname" required=""><br>
@@ -38,12 +38,11 @@
                <input class="form-control" type="number" name="Roll No" placeholder="Roll No" required=""><br>
                <input class="form-control" type="text" name="Password" placeholder="Password" required="">
                <br><br>
-               <button style="background-color: burlywood;width: 300px;height: 40px;">Sign Up</button>
+               <button onclick="submit()" style="background-color: burlywood;width: 300px;height: 40px;">Sign Up</button>
             </form>
-          
           </div>
         </div>
     </section>
-    
+    <script src="home.js"></script>
 </body>
 </html>
