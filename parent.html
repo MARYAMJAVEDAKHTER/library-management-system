@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="home.js"></script>
+    <link rel="stylesheet" href="chat.css">
+    <script src="chat.js"></script>
+    <title>Parent Portal - Attendance System</title>
+  
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="parent.html">Attendance</a></li>
+            <li><a href="query.html">Queries</a></li>
+            <li><a href="#" onclick="logout()">Logout</a></li>
+        </ul>
+    </nav>
+
+    <!-- Parent Dashboard -->
+    <div class="container">
+        <h1>Welcome Parent</h1>
+        <p>Monitor your child's attendance below</p>
+        <h2>Student Attendance History</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Subject</th>
+                    <th>Class</th>
+                    <th>Section</th>
+                    <th>Status</th>
+
+                </tr>
+            </thead>
+            <tbody id="attendance-table">
+                <!-- Attendance Records Will Be Added Here -->
+            </tbody>
+        </table>
+
+        <!-- Query Form -->
+        <div class="query-form">
+            <h2>Submit Attendance Query</h2>
+            <label for="query">Write your query:</label>
+            <textarea id="query" placeholder="Write your concern here..."></textarea>
+            <button class="query-btn" onclick="submitQuery()">Submit Query</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+       <span> &copy; 2025 Student Attendance System | Contact: attendance@example.com</span>
+    </footer>
+
+    <!-- JavaScript for Attendance and Query Submission -->
+    <script>
+        // Simulated Attendance Data
+        let attendanceData = [
+            { date: "2025-02-20", subject: "Math",  Class: "BSCS", Section: "A" ,status: "Present",},
+            { date: "2025-02-21", subject: "Science",Class:"BSCS",Section:"A", status: "Present", },
+            { date: "2025-02-22", subject: "English", Class:"BSCS",Section:"A", status: "Present",},
+        ];
+
+        function loadAttendance() {
+            let table = document.getElementById("attendance-table");
+            attendanceData.forEach(record => {
+                let row = table.insertRow();
+                row.innerHTML = `<td>${record.date}</td><td>${record.subject}</td><td>${record.Class}</td><td>${record.Section}</td><td>${record.status}</td>`;
+            });
+        }
+
+        function submitQuery() {
+            let queryText = document.getElementById("query").value;
+            if (queryText.trim() === "") {
+                alert("Please enter a query before submitting.");
+                return;
+            }
+
+            alert("Query Submitted Successfully!");
+            document.getElementById("query").value = "";
+        }
+
+        // Load attendance on page load
+        window.onload = loadAttendance;
+    </script>
+<!-- Chatbot Button -->
+<button id="chatbot-btn" onclick="toggleChatbot()">Chat with AI</button>
+
+<!-- Chatbot Box -->
+<div id="chatbot-box">
+    <div id="chatbot-header">AI Chatbot <span onclick="toggleChatbot()">×</span></div>
+    <div id="chatbot-messages"></div>
+    <input type="text" id="chatbot-input" placeholder="Ask me anything..." onkeypress="sendMessage(event)">
+</div>
+
+</body>
+</html>

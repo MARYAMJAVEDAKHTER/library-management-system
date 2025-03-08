@@ -1,110 +1,83 @@
-//studentlogin
-function login() {
-  var Username = document.getElementById("Username").value;
-  var Password = document.getElementById("Password").value;
+function createBubble() { 
+    const footer = document.querySelector("footer");
+    const bubble = document.createElement("div");
+    bubble.classList.add("bubble");
 
-  // Perform login validation here
-  if(Username === "admin" && Password === "admin") {
-    alert("Login successful!");
-    return true;
-  } else {
-    alert("Invalid Username or Password.Please try again");
-    return false;
-  }
+    // Bigger Random Size (50px - 100px)
+    let size = Math.random() * 50 + 50; 
+    bubble.style.width = `${size}px`;
+    bubble.style.height = `${size}px`;
+
+    // Random Position
+    bubble.style.left = `${Math.random() * 100}%`;
+
+    // Random Animation Speed
+    bubble.style.animationDuration = `${Math.random() * 4 + 3}s`;
+
+    footer.appendChild(bubble);
+
+    // Remove Bubble After Animation Ends
+    setTimeout(() => {
+        bubble.remove();
+    }, 5000);
 }
-//signup
-function submit() {
-  var Firstname = document.getElementById("Firstname").value;
-  var Laststname = document.getElementById("Laststname").value;
-  var Email = document.getElementById("Email").value;
-  var RollNo = document.getElementById("RollNo").value;
-  var Username = document.getElementById("Username").value;
-  var Password = document.getElementById("Password").value;
-  console.log("Firstname:"+Firstname);
-  console.log("Lastname:"+Laststname);
-  console.log("Email:"+Email);
-  console.log("Username:"+Username);
-  console.log("Password:"+Password);
+
+// Generate Bubbles Continuously
+setInterval(createBubble, 400);
+function logout() {
+    localStorage.removeItem("userRole"); // User ka role remove karna
+    localStorage.removeItem("username"); // Agar username bhi store hai to remove karna
+    window.location.href = "login.html"; // Redirect to login page
 }
-//adminlogin
-function adminlogin(){
-var Username = document.getElementById("Username").value;
-  var Password = document.getElementById("Password").value;
+//.............reports.///
+document.addEventListener("DOMContentLoaded", function () {
+    const reportsTableBody = document.querySelector("#reports-table tbody");
+    const searchInput = document.getElementById("search");
+    const exportBtn = document.getElementById("export-btn");
 
-  // Perform login validation here
-  if(Username === "admin" && Password === "admin") {
-    alert("Login successful!");
-    return true;
-  } else {
-    alert("Invalid Username or Password.Please try again");
-    return false;
-  }
-}
-//addbook
-//assume you have an array to store book
-let books=[];
-function addbook(){
-   const Bookname = document.getElementById("Bookname").value;
-   const Authorname = document.getElementById("Authorname").value;
-   const Quantity = document.getElementById("Quantity").value;
-   const Price = document.getElementById("Price").value;
-   if(!Bookname||!Authorname||!Quantity||!Price){
-    alert('Please fill in both bookname or authorname or quantity or price');
-    return;
-   }
-   //create a book object
-   const newbook={bookname,authorname,quantity,price};
-   //add the book to the array
-   books.push(newbook);
-   console.log('book added:',newbook);
-   console.log('all books:',books);
-  }
-//editbooks
-function editbook(){
-   const Bookname = document.getElementById("Bookname").value;
-   const Authorname = document.getElementById("Authorname").value;
-   if(!Bookname||!Authorname){
-    alert('Please fill in both bookname or authorname or quantity or price');
-    return;
-   }
-   console.log('bookname:'+bookname);
-   console.log('authorname:'+authorname);
-  }
-//searchbook
-function searchbook(){
-  const Bookname = document.getElementById("Bookname").value;
-  const Authorname = document.getElementById("Authorname").value;
-  if(!Bookname||!Authorname){
-   alert('Please fill in both bookname or authorname ');
-   return;
-  }
-  console.log('bookname:'+bookname);
-  console.log('authorname:'+authorname);
- }
-//issuebook
-function issuebook(){
-  const Bookname = document.getElementById("Bookname").value;
-  const studentname = document.getElementById("studentname").value;
-  const duedate = document.getElementById("duedate").value;
+    // Sample attendance data (Replace with database integration)
+    const attendanceRecords = [
+        { id: 1, name: "Maria", date: "2025-02-21", status: "Absent" },
+        { id: 2, name: "Ali", date: "2025-02-21", status: "Present" },
+        { id: 3, name: "Ayesha", date: "2025-02-21", status: "Present" },
+        { id: 4, name: "Maria", date: "2025-02-22", status: "Present" }
+    ];
 
-  if(!Bookname||!Authorname||!duedate){
-   alert('Please fill in both bookname or studentname or duedate');
-   return;
-  }
-  console.log('bookname:'+bookname);
-  console.log('studentname:'+studentname);
-  console.log('duedate:'+duedate)
- }
+    function loadReports(records) {
+        reportsTableBody.innerHTML = "";
+        records.forEach(record => {
+            const row = document.createElement("tr");
+            row.innerHTML = `
+                <td>${record.id}</td>
+                <td>${record.name}</td>
+                <td>${record.date}</td>
+                <td>${record.status}</td>
+            `;
+            reportsTableBody.appendChild(row);
+        });
+    }
 
+    searchInput.addEventListener("input", function () {
+        const searchValue = searchInput.value.toLowerCase();
+        const filteredRecords = attendanceRecords.filter(record => 
+            record.name.toLowerCase().includes(searchValue)
+        );
+        loadReports(filteredRecords);
+    });
 
+    exportBtn.addEventListener("click", function () {
+        let csvContent = "data:text/csv;charset=utf-8,Student ID,Student Name,Date,Status\n";
+        attendanceRecords.forEach(record => {
+            csvContent += `${record.id},${record.name},${record.date},${record.status}\n`;
+        });
 
+        const encodedUri = encodeURI(csvContent);
+        const link = document.createElement("a");
+        link.setAttribute("href", encodedUri);
+        link.setAttribute("download", "attendance_reports.csv");
+        document.body.appendChild(link);
+        link.click();
+    });
 
-
-
-  
-  
-
-
-
-
-
+    loadReports(attendanceRecords);
+});

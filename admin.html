@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="home.js"></script>
+    <link rel="stylesheet" href="chat.css">
+    <script src="chat.js"></script>
+    <title>Admin Panel Attendance System</title>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="admin.html">Dashboard</a></li>
+            <li><a href="report.html">Reports</a></li>
+            <li><a href="#" onclick="logout()">Logout</a></li>
+        </ul>
+    </nav>
+
+    <!-- Admin Dashboard -->
+    <div class="container">
+        <h1>Welcome Admin</h1>
+
+        <!-- User Management -->
+        <h1>Manage Users</h1>
+        <button class="add-user-btn" onclick="addUser()">Add New User</button>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Role</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="user-table">
+                <!-- User Data Will Be Added Here -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+       <span></span>&copy; 2025 Student Attendance System | Contact: attendance@example.com</span>
+    </footer>
+
+    <!-- JavaScript for User Management -->
+    <script>
+        // Sample User Data
+        let users = [
+            { id: 1, name: "Admin User", role: "Admin" },
+            { id: 2, name: "Momina", role: "Faculty" },
+            { id: 3, name: "Mr.Javed", role: "Parent" }
+        ];
+
+        function loadUsers() {
+            let table = document.getElementById("user-table");
+            table.innerHTML = "";
+            users.forEach((user, index) => {
+                let row = table.insertRow();
+                row.innerHTML = `
+                    <td>${user.id}</td>
+                    <td>${user.name}</td>
+                    <td>${user.role}</td>
+                    <td>
+                        <button class="btn edit-btn" onclick="editUser(${index})">Edit</button>
+                        <button class="btn delete-btn" onclick="deleteUser(${index})">Delete</button>
+                    </td>
+                `;
+            });
+        }
+
+        function addUser() {
+            let name = prompt("Enter user name:");
+            let role = prompt("Enter user role (Admin/Faculty/Parent):");
+
+            if (name && role) {
+                let newUser = { id: users.length + 1, name, role };
+                users.push(newUser);
+                loadUsers();
+                alert("User added successfully!");
+            } else {
+                alert("Invalid input.");
+            }
+        }
+
+        function editUser(index) {
+            let newName = prompt("Enter new name:", users[index].name);
+            let newRole = prompt("Enter new role:", users[index].role);
+
+            if (newName && newRole) {
+                users[index].name = newName;
+                users[index].role = newRole;
+                loadUsers();
+                alert("User updated successfully!");
+            }
+        }
+
+        function deleteUser(index) {
+            let confirmDelete = confirm("Are you sure you want to delete this user?");
+            if (confirmDelete) {
+                users.splice(index, 1);
+                loadUsers();
+                alert("User deleted successfully!");
+            }
+        }
+
+        // Load users on page load
+        window.onload = loadUsers;
+    </script>
+<!-- Chatbot Button -->
+<button id="chatbot-btn" onclick="toggleChatbot()">Chat with AI</button>
+
+<!-- Chatbot Box -->
+<div id="chatbot-box">
+    <div id="chatbot-header">AI Chatbot <span onclick="toggleChatbot()">×</span></div>
+    <div id="chatbot-messages"></div>
+    <input type="text" id="chatbot-input" placeholder="Ask me anything..." onkeypress="sendMessage(event)">
+</div>
+
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="home.js"></script>
+
+    <title>Login</title>
+</head>
+<body>
+  <nav>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#">About</a></li>
+         <li><a href="#">Contact</a></li>
+    </ul>
+</nav>
+<div class="imageslider"></div>
+
+ <div class="login-box">
+        <h1>Login</h1>
+    <form >
+       <label>Username</label>
+       <input type="text" placeholder="Username" required="">
+        <label>Password</label>
+        <input type="Password" placeholder="Password" required="">
+      <br><br>
+   <button><a href="index.html">Login</a></button>    
+      <p class="forgot-password" onclick="showResetPassword()">Forgot Password?</p>
+      <!-- Forgot Password Modal -->
+      <div id="resetPasswordModal" style="display:none;">
+          <h3>Reset Password</h3>
+          <input type="text" id="resetUsername" placeholder="Enter Username">
+          <input type="password" id="newPassword" placeholder="Enter New Password">
+          <button onclick="resetPassword()">Reset Password</button>
+          <button onclick="hideResetPassword()">Cancel</button>
+      </div>
+      <script>
+          function showResetPassword() {
+              document.getElementById("resetPasswordModal").style.display = "block";
+          }
+  
+          function hideResetPassword() {
+              document.getElementById("resetPasswordModal").style.display = "none";
+          }
+  
+          function resetPassword() {
+              let resetUsername = document.getElementById("resetUsername").value;
+              let newPassword = document.getElementById("newPassword").value;
+  
+              if (resetUsername && newPassword) {
+                  localStorage.setItem(resetUsername, newPassword);
+                  alert("Password reset successful! You can now log in.");
+                  hideResetPassword();
+              } else {
+                  alert("Please enter all details!");
+              }
+          }
+      </script>
+
+    </form>
+    <br><br>
+    <p class="para-2">Not have an account?<a href="signup.html">Signup here</a></p>  
+
+ </div> 
+ <footer>
+  <span>&copy; 2025 Student Attendance System | Contact: attendance@example.com</span>
+</footer>
+
+</body>
+</html>

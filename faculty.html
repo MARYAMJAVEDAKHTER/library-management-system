@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="home.js"></script>
+    <link rel="stylesheet" href="chat.css">
+    <script src="chat.js"></script>
+    <title>Faculty Portal - Attendance System</title>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="faculty.html">ManageAttendance</a></li>
+            <li><a href="facquery.html">Queries</a></li>
+            <li><a href="#" onclick="logout()">Logout</a></li>
+        </ul>
+    </nav>
+
+    <!-- Faculty Dashboard -->
+    <div class="container">
+        <h1>Welcome Faculty</h1>
+
+        <!-- Manage Attendance -->
+        <h2>Mark Attendance</h2>
+        <div class="attendance-form">
+            <label for="student">Select Student:</label>
+            <select id="student">
+                <option value="Maria">Maria</option>
+                <option value="Tayyaba">Tayyaba</option>
+                <option value="Arfa">Arfa</option>
+            </select>
+
+            <label for="status">Select Status:</label>
+            <select id="status">
+                <option value="Present">Present</option>
+                <option value="Absent">Absent</option>
+            </select>
+
+            <button class="attendance-btn" onclick="markAttendance()">Submit Attendance</button>
+        </div>
+
+        <!-- Query Section -->
+        <h2>Parent Queries</h2>
+        <div id="query-section" class="query-section">
+            <!-- Queries will be displayed here -->
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+       <span>&copy; 2025 Student Attendance System | Contact: attendance@example.com</span>
+    </footer>
+
+    <!-- JavaScript for Attendance and Query Handling -->
+    <script>
+        // Sample Queries from Parents
+        let queries = [
+            { parent: "Mr.Javed", student: "Maria", query: "Why was my child marked absent on 2025-02-21?" },
+            { parent: "Mr.Younus", student: "Tyyaba", query: "Can you verify the attendance for 2025-02-22?" }
+        ];
+
+        function loadQueries() {
+            let querySection = document.getElementById("query-section");
+
+            queries.forEach((q, index) => {
+                let queryBox = document.createElement("div");
+                queryBox.classList.add("query-box");
+
+                queryBox.innerHTML = `
+                    <p><strong>Parent:</strong> ${q.parent}</p>
+                    <p><strong>Student:</strong> ${q.student}</p>
+                    <p><strong>Query:</strong> ${q.query}</p>
+                    <button class="query-btn" onclick="respondToQuery(${index})">Respond</button>
+                `;
+
+                querySection.appendChild(queryBox);
+            });
+        }
+
+        function markAttendance() {
+            let student = document.getElementById("student").value;
+            let status = document.getElementById("status").value;
+
+            alert(`${student} marked as ${status}`);
+        }
+
+        function respondToQuery(index) {
+            let response = prompt("Enter your response:");
+            if (response) {
+                alert("Response sent successfully!");
+            }
+        }
+
+        // Load Queries on Page Load
+        window.onload = loadQueries;
+    </script>
+<!-- Chatbot Button -->
+<button id="chatbot-btn" onclick="toggleChatbot()">Chat with AI</button>
+
+<!-- Chatbot Box -->
+<div id="chatbot-box">
+    <div id="chatbot-header">AI Chatbot <span onclick="toggleChatbot()">×</span></div>
+    <div id="chatbot-messages"></div>
+    <input type="text" id="chatbot-input" placeholder="Ask me anything..." onkeypress="sendMessage(event)">
+</div>
+
+</body>
+</html>

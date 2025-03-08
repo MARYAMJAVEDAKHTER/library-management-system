@@ -1,213 +1,607 @@
-
-/*-------------------main code INDEX----------------------------------*/
-.wrapper{
-  height:500px ;
-  width: 1121px;
-}
-header{
-  height: 95px;
-  width: 1121px;
-  background-color:bisque;
-}
-section{
-  height: 500px;
-  width: 1121px;
-  background-color: chocolate;
-}
-footer{
-  height: 80px;
-  width: 1364px;
-  background-color:bisque;
-}
-li a{
-  color: black;
-  text-decoration: none;
-}
-nav{
-  float: LEFT;
-  word-spacing: 80px;
-  padding: 30px;
-}
-nav li{
-  height: 80px;
-  display: inline-block;
-  line-height: 50px;
-}
-.logo{
-  float: left;
-  padding-left: 20px;
-}
-.logo img{
-  padding-left: 50px;
-} 
-section .sec_img{
-  height: 550px;
-  margin-top: 0px;
-  background-image: url("Image/library1.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-.box{
-  height: 300px;
-  width: 450px;
-}
-/*-------------------------------STUDENT_LOGIN---------------------*/
-.log_img{
-  height: 750px;
-  margin-top: 0px;
-  background-image: url("Image/loginimage.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-.box1{
-  height:589px;
-  width: 400px;
-  background-color: black;
-  margin: 70px auto;
-  opacity: 0.7;
-  color: white;
-  padding: 20px;
-}
-
-input{
-  height: 25px;
-  width: 430px;
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins',sans-serif;
+    box-sizing: border-box;
+    overflow: hidden;
 
 }
-form .login{
-  margin: auto 30px;
-}
-/*------------------admin login--------------*/
-.admin_img{
-  height: 750px;
-  margin-top: 0px;
-  background-image: url("Image/loginimg.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+ body{
+        width: 100%;
+        min-height: 100vh;
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin: 20px;  
+        background-size: cover;
+        background-image: url(/image/WhatsApp\ Image\ 2025-02-28\ at\ 3.37.10\ AM.jpeg);
+        background-position: center;
+        background-repeat: no-repeat; 
+       background-size: cover; 
+       overflow: hidden; 
+       background-color: bisque; 
+       display: grid;
 }
 
-/*-----------------registration----------------------------*/
-.reg_img{
-  height: 750px;
-  margin-top: 0px;
-  background-image: url("Image/regimage3.jpg"); 
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
+.imageslider{
+    width: 100%;
+    min-height: 100vh;
+    background-image: url(/image/WhatsApp\ Image\ 2025-02-28\ at\ 3.37.10\ AM.jpeg);
+    background-size: 100% 100%;
+    animation: changeimage 20s linear infinite;
 }
-.box2{
-  height:589px;
-  width: 400px;
-  background-color: black;
-  margin: 70px auto;
-  opacity: 0.7;
-  color: white;
-  padding: 20px;
-}
-form .registration{
-  margin: auto 50px;
-}
-input{
-  height: 25px;
-  width: 300px;
-}
-form .password{
-  display: inline-block;
-  position: relative;
-  border: 1px solid black;
-}
-.password input{
-  padding: 10px 5px;
-  outline: none;
-  border: 0;
-  height: 25px;
-  width: 300px;
-}
-.pass-icon{
-  display: inline-block;
-  position: absolute;
-  cursor: pointer;
-  top: 0px;
-  right: 4px;
-  width: 39px;
-  height: 30px;
-}
-/*--------------------------book-------------------*/
+@keyframes changeimage {
+    0%{
+        background-image: url(/image/WhatsApp\ Image\ 2025-02-28\ at\ 3.37.10\ AM.jpeg);
+
+    }
+    25%{
+        background-image: url(/image/WhatsApp\ Image\ 2025-03-04\ at\ 7.39.20\ AM.jpeg);
+    }
+    50%{
+        background-image: url(/image/WhatsApp\ Image\ 2025-03-04\ at\ 7.37.34\ AM.jpeg);
+    }
     
-section .book_img{
-  height: 500px;
-  margin-top: 0px;
-  background-image: url("Image/10.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}      
-.container{
-  height: 660px;
-  width: 1350px;
 }
-header{
-  height: 95px;
-  width: 1364px;
-  background-color:bisque;
+        /* Hero Section */
+        .hero {
+            background: url(/image/WhatsApp\ Image\ 2025-02-28\ at\ 3.23.00\ AM\ \(1\).jpeg) no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+            position: fixed;
+            left: 0;
+            right: 0;
+        }
+
+        .hero h1 {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .hero button {
+            background-color:#1d3b47;
+            color: white;
+            font-size: 18px;
+            padding: 12px 20px;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .hero button:hover {
+            background-color: #333;
+        }
+
+        /* Features Section */
+        .features {
+            background-color: #296278;
+            text-align: center;
+            padding: 50px 20px;
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+
+        .features h2 {
+            font-size: 32px;
+            margin-bottom: 5px;
+            color:white ;
+        }
+
+        .feature-box {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .feature {
+            background-color: #eee;
+            padding: 20px;
+            width: 300px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .feature h3 {
+            font-size: 22px;
+            margin-bottom: 0px;
+        }
+
+footer{
+    color: white;
+    word-spacing: 10px;
+    padding: 10px  0px;
+    width: 100%;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #1d3b47;
+    position: fixed;
+    left: 0;
+    bottom: 0;
 }
-section{
-  height: 500px; ;
-  width: 1364px;
-  background-color: chocolate;
+footer:hover {
+    color:white;
+    text-decoration: dashed;
+    cursor: pointer;;
 }
-.book{
-  float: left;
-  padding-left: 20px;
-}        
-.book img{
-  padding-left: 50px;
+footer:hover span {
+    color:#5fc9f3;
+    font-weight: bold;
 }
-/*------------------------add books---------------*/
-.add_img{
-  height: 750px;
-  margin-top: 0px;
-  background-image: url("Image/10.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+@keyframes float {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
 }
-/*------------------edit book---------------*/
-.edit_img{
-  height: 750px;
-  margin-top: 0px;
-  background-image: url("Image/images.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+
+.bubble {
+    position: absolute;
+    bottom: 0;
+    width: 50px;
+    height: 70px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    animation: float 4s linear infinite;
 }
-/*-------------------------search book-----------------------------*/
-.search_img{
-  height: 750px;
-  margin-top: 0px;
-  background-image: url("Image/13.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+ /* Navbar */
+ .navbar {
+       float: left;  
+        word-spacing: 10px;
+        padding: 10px  0px;
+        width: 100%;
+        height: 3px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: #1d3b47;
+        position: fixed;
+        top: 0;
+        left: 0;
+   
 }
-/*--------------------------issue book----------------------*/
-.issue_img{
-  height: 750px;
-  margin-top: 0px;
-  background-image: url("Image/bookimage.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+
+.navbar h1 {
+    font-size: 24px;
 }
-/*-------------------view book------------------*/
-.view_img{
-  height: 750px;
-  margin-top: 0px;
-  background-image: url("Image/121.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+
+.nav-links {
+    list-style-type: none;
+    width: 100%;
+    text-align: center;
+    padding-right: 60px;
+
 }
+
+.nav-links li {
+    display: inline-flex;
+    list-style: none;
+    margin: 10px 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #5fc9f3;
+}
+
+
+/*............home*/
+ nav{
+        float: left;  
+        word-spacing: 10px;
+        padding: 10px  0px;
+        width: 100%;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: #1d3b47;
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+   nav ul{
+        list-style-type: none;
+        width: 100%;
+        text-align: center;
+        padding-right: 60px;
+    }
+
+nav ul li{
+    display: inline-flex;
+    list-style: none;
+    margin: 10px 20px;
+
+}
+ nav ul li a{
+    color:white;
+    text-decoration: none;
+    font-size: 20px;
+    margin: 0 15px;
+    transition: color 0.3s ease-in-out;
+    
+}
+ nav ul li a:hover{
+    color:#5fc9f3;
+    text-decoration: dashed;
+}
+.signup-box{
+width: 370px;
+height: 500px;
+margin: auto;
+margin-top: 30px;
+background-color:white;
+border-radius: 6px;
+float: left;
+position:fixed;
+}
+/*.....................................   SIGNUPPAGE...... ..............*/
+.login-box{
+ width: 370px;
+height: 500px;
+margin: auto;
+margin-top: 30px;
+background-color:white;
+border-radius: 6px;
+float: left;
+position: fixed;
+}
+h1{
+    text-align: center;
+    padding-top: 15px;
+}
+form{
+    width: 300px;
+    margin-left: 20px;
+}
+form label{
+    display: flex;
+    margin-top: 20px;
+    font-size: 20px;
+}
+form input{
+    width: 100%;
+    padding: 7px;
+    border: none   ;
+    border: 1px solid gray;
+    border-radius: 7px;
+    outline: none;
+}
+button{
+    width: 300px;
+    height: 30px;
+    margin-top: 20px;
+    border:#34697e;
+    background-color:#34697e;
+    color:white;
+    font-size: 25px;
+}
+.forgot-password {
+    color: #27637b;
+    cursor: pointer;
+    text-decoration: underline;
+}
+p{
+    text-align: center;
+    padding-top: 20px;
+    font-size: 15px;
+
+}
+.para-2{
+    text-align: center;
+    color:black;
+    font-size: 15px;
+    margin-top: -10px;
+
+}
+.para-2 a{
+    color:#e2ebee;
+}
+/*...................loginpage.....................*/
+ /* Student Dashboard */
+ .container {
+    max-width: 1200px;
+    margin: 50px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    height: 550px;
+}
+
+.container h2 {
+    margin-bottom: 20px;
+}
+
+.attendance-btn {
+    background-color:#306c83;
+    color: white;
+    font-size: 18px;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-bottom: 20px;
+}
+
+.attendance-btn:hover {
+    background-color: #333;
+}
+.logout-btn {
+    float: right;
+    background-color: red;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+/* Attendance Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    height: 100px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: #333;
+    color: white;
+}
+/*student page............................*/
+ /* Query Form */
+ .query-form {
+    margin-top: 30px;
+    text-align: left;
+}
+
+.query-form label {
+    font-size: 18px;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.query-form textarea {
+    width: 100%;
+    height: 70px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.query-btn {
+    background-color:#306c83;
+    color: white;
+    font-size: 18px;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 10px;
+}
+
+.query-btn:hover {
+    background-color: #333;
+}
+
+
+/*parent page........................*/
+ /* Attendance Table */
+ table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: #333;
+    color: white;
+}
+
+/* Mark Attendance */
+.attendance-form {
+    margin-top: 30px;
+    text-align: left;
+}
+
+.attendance-form label {
+    font-size: 18px;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.attendance-form select {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.attendance-btn {
+    background-color:#306c83;
+    color: white;
+    font-size: 18px;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.attendance-btn:hover {
+    background-color: #333;
+}
+
+/* Query Section */
+.query-section {
+    margin-top: 10px;
+    text-align: left;
+}
+
+.query-box {
+    background-color: #f9f9f9;
+    padding: 0px;
+    margin-bottom: 0px;
+    border-radius: 3px;
+}
+
+.query-box p {
+    margin: 5px 0;
+}
+
+.query-btn {
+    background-color:#306c83;
+    color: white;
+    padding: 4px 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.query-btn:hover {
+    background-color:#7eb4c9;
+}
+/*...........faculty page............................*/
+ /* User Management Table */
+ table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: #333;
+    color: white;
+}
+
+.btn {
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    margin: 2px;
+}
+
+.edit-btn {
+    background-color:#526c76;
+    color: white;
+}
+
+.delete-btn {
+    background-color: #dc3545;
+    color: white;
+}
+
+.add-user-btn {
+    background-color:#1a4353 ;
+    color: white;
+    font-size: 18px;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 10px;
+}
+.add-user-btn:hover {
+    background-color:#7eb4c9;
+}
+/*.............admin page.................*/
+#profile-info {
+    width: 50%;
+    height: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+    background: #81c9e6 ;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: left;
+}
+
+h2 {
+    text-align: center;
+    color:white;
+    font-size: 24px;
+}
+
+#profile-info p {
+    font-size: 18px;
+    color:#6dcdf3 ;
+    padding: 8px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+#profile-info p:last-child {
+    border-bottom: none;
+}
+
+strong {
+    color: #222;
+}
+
+span {
+    color:white ;
+    font-weight: bold;
+}
+/*profile .................................*/
+
+
+main {
+    width: 80%;
+    margin: 20px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+textarea {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+
+/*............querypage.........*/

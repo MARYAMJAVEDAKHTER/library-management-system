@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty Queries - Attendance System</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="home.js"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <ul class="nav-links">
+           <li> <a href="faculty.html">Home</a></li>
+            <li><a href="facquery.html">Queries</a></li>
+            <li><a href="#" onclick="logout()">Logout</a></li>
+
+        </nav>
+    </header>
+
+    <main>
+        <table id="queries-table">
+            <h1>Parent Queries</h1>
+
+            <thead>
+                <tr>
+                    <th>Parent</th>
+                    <th>Student</th>
+                    <th>Query</th>
+                    <th>Response</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Queries will be dynamically loaded here -->
+            </tbody>
+        </table>
+
+        <form id="response-form">
+            <h1>Respond to Query</h1>
+
+            <label for="query-select">Select Query:</label>
+            <select id="query-select">
+                <option value="">-- Select Query --</option>
+            </select>
+
+            <label for="response-text">Write Response:</label>
+            <textarea id="response-text" placeholder="Write your response here..." required></textarea>
+
+            <button type="submit">Submit Response</button>
+        </form>
+    </main>
+    <footer>
+        <span>&copy; 2025 Student Attendance System | Contact: attendance@example.com</span>
+     </footer>
+</body>
+</html>
